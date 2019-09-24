@@ -21,7 +21,24 @@ $(document).ready(function () {
         }
         );
 
-
     });
+
+    $(".devourBurger").on("click",function(){
+        var buttonId=$(this).data("id")
+        var burgerConsumed=$(this).data("consumed").toString()
+        console.log("Button value: "+buttonId+" consumed: "+burgerConsumed)
+
+        var newConsumedState={
+            burger_consumed: burgerConsumed.toUpperCase()
+        }
+        console.log(newConsumedState)
+        $.ajax("/api/burger/"+buttonId,{
+            type: "PUT",
+            data: newConsumedState
+        }).then(function(){
+            console.log("Changed consumed state to: "+ burgerConsumed)
+            location.reload()
+        })
+    })
 
 });

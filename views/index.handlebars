@@ -21,13 +21,9 @@
         <div class="col-4">
             <ul>
                 {{#each burgers}}
-                <li>
-                    <p>
-                        {{this.id}}. {{this.burger_name}}
-
-                        <button data-planid="{{this.id}}" class="devourBurger">Devour</button>
-                    </p>
-                </li>
+                    {{#unless burger_devoured}}
+                        {{>burger/burger-block devoured=1}}
+                    {{/unless}}
                 {{/each}}
             </ul>
         </div>
@@ -35,7 +31,13 @@
         <div class="col-2"></div>
         <div class="col-1"></div>
         <div class="col-4">
-            <h6>Nothing here</h6>
+            <ul>
+                {{#each burgers}}
+                    {{#if burger_devoured}}
+                        {{>burger/burger-block devoured=0}}
+                    {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 

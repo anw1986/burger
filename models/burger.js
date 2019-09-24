@@ -10,6 +10,11 @@ var burger={
         orm.insertOne("burgers",burgerObj,function(res){
             callback(res)
         })
+    },
+    updateBurger:function(state,id,callback){
+        orm.updateOne("burgers","burger_devoured",state,id,function(res){
+            callback(res)
+        })
     }
 }
 

@@ -24,4 +24,18 @@ router.post("/api/burger",function(req,res){
     })
 })
 
+
+router.put("/api/burger/:id",function(req,res){
+    var burgerId=req.params.id 
+    console.log("burger ID: "+burgerId)
+    console.log("State: "+req.body.burger_consumed)
+    burger.updateBurger(req.body.burger_consumed,burgerId,function(result){
+        if(result.changedRows==0){
+            return res.status(404).end()
+        }else{
+            res.status(200).end()
+        }
+    })
+})
+
 module.exports = router
