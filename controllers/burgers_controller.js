@@ -16,4 +16,12 @@ router.get("/", function (req, res) {
 
 })
 
+router.post("/api/burger",function(req,res){
+    console.log(req.body)
+    // res.json(req.body)
+    burger.insertBurger(req.body,function(result){
+        res.json(result)
+    })
+})
+
 module.exports = router

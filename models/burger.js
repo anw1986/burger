@@ -5,6 +5,11 @@ var burger={
         orm.selectAll("burgers",function(res){
             callback(res)
         })
+    },
+    insertBurger:function(burgerObj, callback){
+        orm.insertOne("burgers",burgerObj,function(res){
+            callback(res)
+        })
     }
 }
 
