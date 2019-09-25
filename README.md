@@ -8,6 +8,8 @@
 
 * The app will store every burger in a database, whether devoured or not. It's **persistance**
 
+* [Deployed Heroku link](https://nameless-journey-77880.herokuapp.com/) 
+
 ### Overview
 
 This assignment, is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM. It follows the MVC (Model View Control) design pattern; using Node and MySQL to query and route data in the app, and Handlebars to generate HTML.
