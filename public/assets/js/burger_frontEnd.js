@@ -24,15 +24,15 @@ $(document).ready(function () {
     });
 
     $(".devourBurger").on("click",function(){
-        var buttonId=$(this).data("id")
-        var burgerConsumed=$(this).data("consumed").toString()
-        console.log("Button value: "+buttonId+" consumed: "+burgerConsumed)
+        var burgerId=$(this).data("id")
+        var burgerConsumed=$(this).data("consumed")
+        console.log("Button value: "+burgerId+" consumed: "+burgerConsumed)
 
         var newConsumedState={
-            burger_consumed: burgerConsumed.toUpperCase()
+            burger_consumed: burgerConsumed
         }
         console.log(newConsumedState)
-        $.ajax("/api/burger/"+buttonId,{
+        $.ajax("/api/burger/"+burgerId,{
             type: "PUT",
             data: newConsumedState
         }).then(function(){
